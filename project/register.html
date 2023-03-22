@@ -1,0 +1,47 @@
+<?php
+require 'connection.php';
+
+if(isset($_POST["submit"]))
+{
+  $FirstName = $_POST["FirstName"];
+  $Surname = $_POST["Surname"];
+  $Username = $_POST["Username"];
+  $Email = $_POST["Email"];
+  $Password=$_POST["Password"]
+}
+ 
+ $query = "INSERT INTO personal_details VALUES('$FirstName', '$Surname', '$Username', '$Email', '$Password')";
+  mysqli_query($con,$query);
+  echo 
+  "
+  <script> alert('Data Inserted Successfully'); </script>
+  ";
+}
+?>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='register.css'>
+</head>
+<body>
+    <div class="loginbox">
+    <img src="logo.jpg" class="logo">
+    <form method="post" action="register.php">
+        <p>Name</p>
+        <input type="text" name="FirstName" placeholder="Enter FirstName" id="FirstName">
+        <p>Surname</p>
+        <input type="text" name="Surname" placeholder="Enter Surname" id="Surname">
+        <p>Username</p>
+        <input type="text" name="Username" placeholder="Enter Username" id="Username"> 
+        <p>Email</p>
+        <input type="email" name = "Email" placeholder="Email account" id="email">
+        <p>Password</p>
+        <input type="password" name="password" placeholder="Enter password" id="password" min="4" required>
+        <input type="submit" name="" value="Sign Up" onclick="validate()">
+    </form>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<?php
+require 'connection.php';
+
+if(isset($_POST["submit"])){
+  $FirstName = $_POST["FirstName"];
+  $age = $_POST["age"];
+  $country = $_POST["country"];
+  $gender = $_POST["gender"];
+
+  $languages = $_POST["languages"];
+  $language = "";
+  foreach($languages as $row){
+    $language .= $row . ",";
+  }
+
+  $query = "INSERT INTO personal details VALUES('$FirstName', '$age', '$country', '$gender', '$language')";
+  mysqli_query($conn,$query);
+  echo
+  "
+  <script> alert('Data Inserted Successfully'); </script>
+  ";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINGSA</title>
+    <link rel="icon" type="image/x-icon" href="logo.jpg">
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="form.js">
+    
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img align = right src="log.png">
+        </div>
+        <div class="logo">
+            <img src="log.png">
+            <p>Zimbabwe National Geospatial and Space Agency</p><br>
+        </div>
+
+        <div class="h2">
+            <h1>ZINGSA</h1><br>
+ </div>
+ <hr>
+    </nav>
+      <div class="app_form">
+        <form action="#" name="Zingsa Stuff Form">
+            <table cellpadding = "2" width = "20%" bgcolor = "#0b0b45" cellspacing = "2">
+                <tr>
+                    <td colspan="2">
+                        <caption><font size = 4> <b>Work Experience</b></font></caption>
+                    </td>
+               <tr>
+                    <td>Date of Appointment</td>
+                    <td> <input type="date"  name = "Date Of Appointment" ></td>
+                </tr>
+                <tr>
+                    <td>Nature of Contract</td>
+                    <td><input type="radio" name = "Nature of Contract">Permanent
+                        <input type="radio" name="Nature of Contract">Temporary
+                        <input type="radio" name="Nature of Contract">Intern</td>
+                    </tr>
+                 <tr>
+                    <td>Contract Duration</td>
+                    <td><input type="number" name="Contract Duration" placeholder="Years" max="10" ></td>
+                </tr>
+                <tr>
+                    <td>Contracted times</td>
+                    <td><input type="number" name = "Contracted Times"></td>
+                </tr>
+                <tr>
+                    <td>Years in service</td>
+                    <td><input type="number" name="Years in service" placeholder="Years" max="10" ></td>
+                </tr>
+                <tr>
+                    <td>Salary Grade</td>
+                    <td><input type="text" name="Salary Grade"></td>
+                </tr>
+                <tr>
+                    <td>Position</td>
+                    <td><input type="text" name="Position"></td>
+                </tr>
+                <tr>
+                    <td>Maximum Qualification</td>
+                    <td><input type="text" name = "Qualification"></td>
+                </tr>
+                <tr>
+                    <td>Passport Number</td>
+                    <td><input type="text" name="Passport Number" placeholder="Leave blank if not applicable"></td>
+                </tr>
+                <tr>
+                    <td>Expiry Date</td>
+                    <td><input type="date" name="Expiry Date" placeholder="enter passport expiry date"></td>
+                </tr>
+                <tr>
+                <td><input type="submit" value="submit" class ="btn"/><td>
+                </tr>
+
+                
+                
+   </table>
+        </form>
+       </div>
+</body>
+</html>
